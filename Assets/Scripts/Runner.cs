@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 public enum RoadLine
 {
@@ -13,11 +12,15 @@ public class Runner : MonoBehaviour
 {
     [SerializeField] RoadLine line;
     Rigidbody rigidbody;
-    [SerializeField] float positionX = 2.0f;
+    [SerializeField] float positionX = 4.0f;
     [SerializeField] float speed = 25.0f;
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+    }
+    private void OnEnable()
+    {
+        InputManager.Instance.action += OnKeyUpdate;
     }
     void Start()
     {
@@ -38,19 +41,14 @@ public class Runner : MonoBehaviour
     }
     void Move()
     {
-        rigidbody.position = Vector3.Lerp
-            (
-                rigidbody.position,
-                new Vector3(positionX * (int)line, 0, 0),
-                speed * Time.fixedDeltaTime
-            );
-    }
-    void Update()
-    {
-        OnKeyUpdate();
+        rigidbody.position = Vector3.Lerp(rigidbody.position, new Vector3(positionX * (int)line, 0, 0), speed * Time.fixedDeltaTime);
     }
     void FixedUpdate()
     {
         Move();
+    }
+    private void OnDisable()
+    {
+        InputManager.Instance.action -= OnKeyUpdate;
     }
 }
