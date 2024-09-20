@@ -8,15 +8,15 @@ public class SceneryManager : Singleton<SceneryManager>
 {
     [SerializeField] Image screenImage;
 
+    public void OnClickStart()
+    {
+        StartCoroutine(AsyncLoad(1));
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            StartCoroutine(AsyncLoad(1));
-    }
+    
     public IEnumerator FadeIn()
     {
         screenImage.gameObject.SetActive(true);
