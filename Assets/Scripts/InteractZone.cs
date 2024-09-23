@@ -6,6 +6,6 @@ public class InteractZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject?.GetComponent<IHitable>().Activate();
+        other.gameObject.GetComponent<IHitable>()?.Activate();
     }
 }

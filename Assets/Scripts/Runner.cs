@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 public enum RoadLine
 {
@@ -50,5 +51,15 @@ public class Runner : MonoBehaviour
     private void OnDisable()
     {
         InputManager.Instance.action -= OnKeyUpdate;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //IColliderable colliderable = other.GetComponent<IColliderable>();
+        //if(colliderable != null)
+        //{
+        //    colliderable.Activate();
+        //}
+        other.gameObject.GetComponent<IColliderable>()?.Activate();
     }
 }

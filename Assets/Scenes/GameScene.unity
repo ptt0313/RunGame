@@ -1617,7 +1617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: -1
   positionX: 4
-  speed: 25
+  speed: 100
 --- !u!1 &1874857892
 GameObject:
   m_ObjectHideFlags: 0
