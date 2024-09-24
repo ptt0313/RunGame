@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class SceneryManager : Singleton<SceneryManager>
 {
     [SerializeField] Image screenImage;
-
     public void OnClickStart()
     {
         StartCoroutine(AsyncLoad(1));
@@ -65,7 +64,6 @@ public class SceneryManager : Singleton<SceneryManager>
             // 작업의 진행 상태를 나타내는 변수입니다.(읽기전용)
             if (asyncOperation.progress >= 0.9f)
             {
-                Debug.Log("log");
                 color.a = Mathf.Lerp(color.a, 1f, Time.deltaTime);
 
                 screenImage.color = color;
