@@ -20,15 +20,10 @@ public class CoinManager : MonoBehaviour
     {
         for (int i = 0; i < creatCount; i++)
         {
-            prefab = Instantiate(prefab);
+            GameObject prefab = ResourcesManager.Instance.Instantiate("Coin");
             prefab.transform.SetParent(gameObject.transform);
             prefab.transform.localPosition = new Vector3(0, 0, offset * i);
-            int index = prefab.name.IndexOf("(Clone)");
-
-            if (index>0)
-            {
-                prefab.name = prefab.name.Substring(0, index);
-            }
+            
             prefab.GetComponent<MeshRenderer>().enabled = false;
             prefab.GetComponent<BoxCollider>().enabled = false;
             coins.Add(prefab);
