@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    void Awake()
+    [SerializeField] AudioSource sceneryAudioSource;
+    [SerializeField] AudioSource effectAudioSource;
+
+    public void Listen(AudioClip audioClip)
     {
-        GetComponent<AudioSource>();
+        effectAudioSource.PlayOneShot(audioClip);
     }
 
 
-    
 }
