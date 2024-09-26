@@ -20,8 +20,8 @@ public class CoinManager : MonoBehaviour
     {
         for (int i = 0; i < creatCount; i++)
         {
-            GameObject prefab = ResourcesManager.Instance.Instantiate("Coin");
-            prefab.transform.SetParent(gameObject.transform);
+            GameObject prefab = ResourcesManager.Instance.Instantiate("Coin",gameObject.transform);
+            
             prefab.transform.localPosition = new Vector3(0, 0, offset * i);
             
             prefab.GetComponent<MeshRenderer>().enabled = false;
@@ -38,5 +38,5 @@ public class CoinManager : MonoBehaviour
             coins[i].GetComponent<BoxCollider>().enabled = true;
         }
     }
-
+    
 }

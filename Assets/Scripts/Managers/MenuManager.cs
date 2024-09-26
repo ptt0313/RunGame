@@ -13,7 +13,11 @@ public class MenuManager : MonoBehaviour
     {
         gameObject.GetComponentInChildren<Text>().fontSize = 50;
     }
-
+    public void Execute()
+    {
+        EventManager.Publish(EventType.START);
+        StartCoroutine(SceneryManager.Instance.AsyncLoad(1));
+    }
     public void Shop()
     {
         Debug.Log("Shop");

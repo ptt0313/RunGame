@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour, IColliderable
+public class Coin : State, IColliderable
 {
     [SerializeField] GameObject rotationObject;
     [SerializeField] float Speed;
-    [SerializeField] ParticleSystem particleSystem;
 
     public void Activate()
     {
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        particleSystem.Play();
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
     private void OnEnable()
     {
+        base.OnEnable();
+
         rotationObject = GameObject.Find("RotationObject");
 
         Speed = rotationObject.GetComponent<RotationObject>().Speed;
@@ -24,8 +25,8 @@ public class Coin : MonoBehaviour, IColliderable
     }
     private void Update()
     {
+        if (state == false) return;
         transform.Rotate(0, Speed * Time.deltaTime, 0);
     }
-    
 
 }
