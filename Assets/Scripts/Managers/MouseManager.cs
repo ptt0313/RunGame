@@ -34,7 +34,6 @@ public class MouseManager : Singleton<MouseManager>
                 break;
             case 1: Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                
                 break;
         }
     }
