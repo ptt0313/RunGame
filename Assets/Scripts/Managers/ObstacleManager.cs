@@ -8,7 +8,6 @@ public class ObstacleManager : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] int creatCount = 5;
     [SerializeField] int random;
-    [SerializeField] Transform obstaclePosition;
     void Start()
     {
         obstacles.Capacity = 10;
@@ -57,9 +56,11 @@ public class ObstacleManager : MonoBehaviour
                 // 현재 리스트에 있는 게임 오브젝트가 활성화되어 있으면 random 변수의 값을 +1 해서 다시 검색 합니다.
                 random = (random + 1) % obstacles.Count;
             }
-            // 랜덤으로 설정된 Obstacle 오브젝트를 활성화합니다.
-            obstacles[random].transform.position = new Vector3(Random.Range(-1, 1) * 4, 0, obstaclePosition.position.z);
-            obstacles[random].SetActive(true);
+
         }
+    }
+    public GameObject GetObstacle()
+    {
+        return obstacles[random];
     }
 }

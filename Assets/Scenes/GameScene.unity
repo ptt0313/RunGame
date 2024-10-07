@@ -452,9 +452,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4683698669332398923, guid: 189c28e1654d7894e8bc92d6cded2b67, type: 3}
       insertIndex: -1
       addedObject: {fileID: 796243652}
-    - targetCorrespondingSourceObject: {fileID: 4683698669332398923, guid: 189c28e1654d7894e8bc92d6cded2b67, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1267881619}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4683698669332398924, guid: 189c28e1654d7894e8bc92d6cded2b67, type: 3}
       insertIndex: -1
@@ -541,8 +538,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367615467}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -564,7 +561,6 @@ MonoBehaviour:
   prefab: {fileID: 873416397326792591, guid: ee61eceec7d12e9409a2d4ff449b8047, type: 3}
   creatCount: 5
   random: 0
-  obstaclePosition: {fileID: 1267881619}
 --- !u!1 &537381113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 2, z: -3.5}
+  m_FollowOffset: {x: 0, y: 2.5, z: -3.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1249,7 +1245,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 2, z: -3.5}
+  m_LocalPosition: {x: 0, y: 2.5, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1562,15 +1558,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267881618}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 120}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1955471157}
   - {fileID: 339328260}
   - {fileID: 315411348}
-  m_Father: {fileID: 364120356}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1267881620
 MonoBehaviour:
@@ -1584,11 +1580,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd340c58ddaec64daa9cee9706048b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roads:
+  parentRoads:
   - {fileID: 177451631}
   - {fileID: 343928703}
   - {fileID: 897442772}
   - {fileID: 364120356}
+  obstacleManager: {fileID: 367615469}
+  PositionX:
+  - {fileID: 1955471157}
+  - {fileID: 339328260}
+  - {fileID: 315411348}
   randomPositionZ:
   - 0
   - 0
@@ -1671,7 +1672,7 @@ Transform:
   m_GameObject: {fileID: 1469986448}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 2, z: -3.5}
+  m_LocalPosition: {x: 0, y: 2.5, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2228,3 +2229,4 @@ SceneRoots:
   - {fileID: 1121183335748584602}
   - {fileID: 1834803046}
   - {fileID: 367615468}
+  - {fileID: 1267881619}
